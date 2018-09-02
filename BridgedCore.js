@@ -6,7 +6,7 @@ var Bridge = require('./').Bridge;
 var Accessory = require('./').Accessory;
 var accessoryLoader = require('./lib/AccessoryLoader');
 
-console.log("HAP-NodeJS starting...");
+console.log("Starting...");
 
 // Initialize our storage system
 storage.initSync();
