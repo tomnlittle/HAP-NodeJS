@@ -3,62 +3,100 @@ var Service = require('../').Service;
 var Characteristic = require('../').Characteristic;
 var uuid = require('../').uuid;
 
+var shell = require('shelljs');
+shell.cd('accessories')
+
+const writeLed = (command) => {
+  shell.exec(`./write.sh ${command}`);
+}
+
+// Initialise the light to the default settings
+writeLed('On')
+writeLed('White')
+writeLed('Off')
+
 var LightController = {
-  name: "LED Strips", //name of accessory
+  name: "LED Strips",
   pincode: "031-45-154",
-  username: "FA:3C:ED:5A:1A:1A", // MAC like address used by HomeKit to differentiate accessories.
-  manufacturer: "HAP-NodeJS", //manufacturer (optional)
-  model: "v1.0", //model (optional)
-  serialNumber: "A12S345KGB", //serial number (optional)
+  username: "FA:3C:ED:5A:1A:1A",
+  manufacturer: "HAP-NodeJS",
+  model: "v1.0",
+  serialNumber: "A12S345KGB",
+  power: false,
+  brightness: 100,
+  hue: 0,
+  saturation: 0,
+  outputLogs: true,
 
-  power: false, //current power status
-  brightness: 100, //current brightness
-  hue: 0, //current hue
-  saturation: 0, //current saturation
-
-  outputLogs: false, //output logs
-
-  setPower: function(status) { //set power of accessory
+  setPower: function(status) {
     if(this.outputLogs) console.log("Turning the '%s' %s", this.name, status ? "on" : "off");
+
+    const iterations = 100;
+    const waitLength = 200;
+
+    if (status) {
+
+      writeLed('On');
+
+      for (let i = 0; i < iterations; i++) {
+        setTimeout(() => {
+          writeLed('BrightUp');
+        }, i * waitLength)
+      }
+
+    } else {
+
+      for (let i = 0; i < iterations; i++) {
+        setTimeout(() => {
+          writeLed('BrightDown');
+        }, i * waitLength)
+      }
+
+      setTimeout(() => {
+        writeLed('Off');
+      }, iterations * waitLength)
+
+    }
+
     this.power = status;
   },
 
-  getPower: function() { //get power of accessory
+  getPower: function() {
     if(this.outputLogs) console.log("'%s' is %s.", this.name, this.power ? "on" : "off");
     return this.power;
   },
 
-  setBrightness: function(brightness) { //set brightness
+  setBrightness: function(brightness) {
     if(this.outputLogs) console.log("Setting '%s' brightness to %s", this.name, brightness);
     this.brightness = brightness;
   },
 
-  getBrightness: function() { //get brightness
+  getBrightness: function() {
     if(this.outputLogs) console.log("'%s' brightness is %s", this.name, this.brightness);
     return this.brightness;
   },
 
-  setSaturation: function(saturation) { //set brightness
+  setSaturation: function(saturation) {
     if(this.outputLogs) console.log("Setting '%s' saturation to %s", this.name, saturation);
     this.saturation = saturation;
   },
 
-  getSaturation: function() { //get brightness
+  getSaturation: function() {
     if(this.outputLogs) console.log("'%s' saturation is %s", this.name, this.saturation);
     return this.saturation;
   },
 
-  setHue: function(hue) { //set brightness
+  setHue: function(hue) {
     if(this.outputLogs) console.log("Setting '%s' hue to %s", this.name, hue);
     this.hue = hue;
   },
 
-  getHue: function() { //get hue
+  getHue: function() {
     if(this.outputLogs) console.log("'%s' hue is %s", this.name, this.hue);
     return this.hue;
   },
 
-  identify: function() { //identify the accessory
+  identify: function() {
     if(this.outputLogs) console.log("Identify the '%s'", this.name);
   }
 }
