@@ -26,6 +26,7 @@ var accessories = accessoryLoader.loadDirectory(dir);
 
 // Add them all to the bridge
 accessories.forEach(function(accessory) {
+  console.log('Added: ' + accessory.displayName + ' with PIN: ' + accessory.pincode);
   bridge.addBridgedAccessory(accessory);
 });
 

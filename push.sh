@@ -11,4 +11,5 @@ rsync \
     --delete \
     * pi@192.168.1.230:~/homekit-server
 
-ssh pi@192.168.1.230 "~/homekit-server/restart.sh"
+# ssh pi@192.168.1.230 "~/homekit-server/restart.sh"
+# ssh pi@192.168.1.230 "python ~/homekit-server/hardware/led.py"
