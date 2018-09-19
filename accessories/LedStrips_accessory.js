@@ -31,8 +31,8 @@ var LightController = {
   setPower: function(status) {
     if(this.outputLogs) console.log("Turning the '%s' %s", this.name, status ? "on" : "off");
 
-    const iterations = 100;
-    const waitLength = 200;
+    const iterations = 35;
+    const waitLength = 100;
 
     if (status) {
 
@@ -73,6 +73,7 @@ var LightController = {
 
   getBrightness: function() {
     if(this.outputLogs) console.log("'%s' brightness is %s", this.name, this.brightness);
+    // about 30 stops
     return this.brightness;
   },
 
