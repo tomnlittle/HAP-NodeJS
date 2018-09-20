@@ -1,4 +1,4 @@
-'use strict';
+
 
 const bonjour = require('bonjour-hap');
 // const os = require('os');

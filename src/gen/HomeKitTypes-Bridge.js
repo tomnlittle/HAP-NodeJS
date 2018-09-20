@@ -1,4 +1,4 @@
-'use strict';
+
 // Removed from new HAS
 
 const inherits = require('util').inherits;
@@ -6,9 +6,9 @@ const Characteristic = require('../Characteristic').Characteristic;
 const Service = require('../Service').Service;
 
 /**
- * 
+ *
  * Removed in IOS 11
- * 
+ *
  */
 
 /**
@@ -128,9 +128,9 @@ Characteristic.TargetHumidifierDehumidifierState.AUTO = 0; //Is Now HUMIDIFIER_O
 
 
 /**
- * 
+ *
  * Removed in IOS 10
- * 
+ *
  */
 
 /**

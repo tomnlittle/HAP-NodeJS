@@ -1,4 +1,4 @@
-'use strict';
+
 
 const debug = require('debug')('StreamController');
 // const inherits = require('util').inherits;

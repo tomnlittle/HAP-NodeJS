@@ -1,4 +1,4 @@
-'use strict';
+
 
 const storage = require('node-persist');
 const util = require('util');

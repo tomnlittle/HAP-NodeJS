@@ -1,4 +1,4 @@
-'use strict';
+
 
 const debug = require('debug')('HAPServer');
 const crypto = require('crypto');

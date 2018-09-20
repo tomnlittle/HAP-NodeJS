@@ -1,4 +1,4 @@
-'use strict';
+
 
 const debug = require('debug')('EventedHTTPServer');
 const EventEmitter = require('events').EventEmitter;

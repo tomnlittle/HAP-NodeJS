@@ -1,4 +1,4 @@
-'use strict';
+
 
 const debug = require('debug')('Accessory');
 const crypto = require('crypto');

@@ -1,4 +1,4 @@
-'use strict';
+
 
 const {Accessory} = require('./Accessory');
 const {inherits} = require('util');

@@ -1,4 +1,4 @@
-'use strict';
+
 
 const debug = require('debug')('Camera');
 const {inherits} = require('util');

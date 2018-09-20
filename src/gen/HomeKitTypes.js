@@ -1,4 +1,4 @@
-'use strict';
+
 // THIS FILE IS AUTO-GENERATED - DO NOT MODIFY
 
 const inherits = require('util').inherits;
@@ -3536,4 +3536,3 @@ inherits(Service.WindowCovering, Service);
 Service.WindowCovering.UUID = '0000008C-0000-1000-8000-0026BB765291';
 
 const HomeKitTypesBridge = require('./HomeKitTypes-Bridge');
-

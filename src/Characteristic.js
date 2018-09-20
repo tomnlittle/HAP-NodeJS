@@ -1,4 +1,4 @@
-'use strict';
+
 
 const inherits = require('util').inherits;
 const EventEmitter = require('events').EventEmitter;

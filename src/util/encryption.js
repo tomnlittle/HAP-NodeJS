@@ -1,4 +1,4 @@
-'use strict';
+
 
 const crypto = require('crypto');
 const chacha20poly1305 = require('./chacha20poly1305');

@@ -1,4 +1,4 @@
-'use strict';
+
 
 const dgram = require('dgram');
 const EventEmitter = require('events').EventEmitter;

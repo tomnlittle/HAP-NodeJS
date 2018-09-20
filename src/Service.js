@@ -1,4 +1,4 @@
-'use strict';
+
 
 const inherits = require('util').inherits;
 const clone = require('./util/clone').clone;
