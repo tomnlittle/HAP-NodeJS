@@ -4,9 +4,6 @@
   "description": "HAP-NodeJS is a Node.js implementation of HomeKit Accessory Server.",
   "main": "index.js",
   "types": "index.d.ts",
-  "engines": {
-    "node": ">=4.3.2"
-  },
   "dependencies": {
     "bonjour-hap": "^3.5.1",
     "buffer-shims": "^1.0.0",
@@ -23,8 +20,7 @@
     "simple-plist": "0.0.4"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node BridgedCore.js"
+    "start": "node src/Core.js"
   },
   "repository": {
     "type": "git",
