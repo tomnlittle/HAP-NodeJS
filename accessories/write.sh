@@ -1,1 +1,1 @@
-./irrp.py -p -g26 -fcodes $1
+./irrp.py -p -g16 -fcodes $1
