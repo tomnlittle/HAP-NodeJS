@@ -4,4 +4,4 @@ killall node
 # npm install
 cd ~/homekit-server
 sudo pigpiod
-node Core.js
+npm start
