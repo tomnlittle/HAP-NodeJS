@@ -38,23 +38,23 @@ var LightController = {
 
       writeLed('On');
 
-      for (let i = 0; i < iterations; i++) {
-        setTimeout(() => {
-          writeLed('BrightUp');
-        }, i * waitLength)
-      }
+      // for (let i = 0; i < iterations; i++) {
+      //   setTimeout(() => {
+      //     writeLed('BrightUp');
+      //   }, i * waitLength)
+      // }
 
     } else {
 
-      for (let i = 0; i < iterations; i++) {
-        setTimeout(() => {
-          writeLed('BrightDown');
-        }, i * waitLength)
-      }
+      // for (let i = 0; i < iterations; i++) {
+      //   setTimeout(() => {
+      //     writeLed('BrightDown');
+      //   }, i * waitLength)
+      // }
 
-      setTimeout(() => {
+      // setTimeout(() => {
         writeLed('Off');
-      }, iterations * waitLength)
+      // }, iterations * waitLength)
 
     }
 
@@ -78,7 +78,7 @@ var LightController = {
   },
 
   setSaturation: function(saturation) {
-    if(this.outputLogs) console.log("Setting '%s' saturation to %s", this.name, saturation);
+    if(this.outputLogs) console.log("Setting '%s' saturation to %s", this.name, saturation)
     this.saturation = saturation;
   },
 
@@ -89,6 +89,41 @@ var LightController = {
 
   setHue: function(hue) {
     if(this.outputLogs) console.log("Setting '%s' hue to %s", this.name, hue);
+
+    // there are 15 possible colours to set the lights and 360 different hue settings
+    // meaning each colour gets a range of 24 in the hue spectrum
+
+    const hues = {
+      360: 'Red0',
+      0 : 'Red0',
+      24: 'Red1',
+      48: 'Red2',
+      72: 'Red3',
+      96: 'Red4',
+      120: 'Green0',
+      144: 'Green1',
+      168: 'Green2',
+      192: 'Green3',
+      216: 'Green4',
+      240: 'Blue0',
+      264: 'Blue1',
+      288: 'Blue2',
+      312: 'Blue3',
+      336: 'Blue4'
+    }
+
+    let selectedKey = 0;
+    for (const key of Object.keys(hues)){
+      // if the hue value is within 12 of this key then this is the key to set it too
+
+      if (key < hue + 12 && key > hue - 12) {
+        selectedKey = key;
+        break;
+      }
+    }
+
+    writeLed(hues[selectedKey]);
+
     this.hue = hue;
   },
 
