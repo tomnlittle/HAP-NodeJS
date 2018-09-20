@@ -15,6 +15,8 @@ writeLed('On')
 writeLed('White')
 writeLed('Off')
 
+const MIN_SATURATION = 50;
+
 var LightController = {
   name: "LED Strips",
   pincode: "031-45-154",
@@ -114,15 +116,19 @@ var LightController = {
 
     let selectedKey = 0;
     for (const key of Object.keys(hues)){
-      // if the hue value is within 12 of this key then this is the key to set it too
 
+      // if the hue value is within 12 of this key then this is the key to set it too
       if (key < hue + 12 && key > hue - 12) {
         selectedKey = key;
         break;
       }
     }
 
-    writeLed(hues[selectedKey]);
+    if (this.saturation < MIN_SATURATION) {
+      writeLed('White')
+    } else {
+      writeLed(hues[selectedKey]);
+    }
 
     this.hue = hue;
   },
