@@ -24,7 +24,6 @@ const config = {
     serialNumber: 'A12S345KGB'
 };
 
-
 let power = false;
 let hue = 0;
 let saturation = 0;

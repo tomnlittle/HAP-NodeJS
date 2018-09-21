@@ -7,7 +7,7 @@ const ed25519 = require('ed25519-hap');
 const bufferShim = require('buffer-shims');
 
 module.exports = {
-    AccessoryInfo: AccessoryInfo
+    AccessoryInfo
 };
 
 /**
