@@ -6,7 +6,7 @@ const uuid = require('../../util/uuid');
 const shell = require('shelljs');
 shell.cd('/home/pi/homekit-server/');
 
-const writeLed = (command) => shell.exec(`./write.sh 16 ${command}`);
+const writeLed = (command) => shell.exec(`./write.sh 13 ${command}`);
 
 // Initialise the light to the default settings
 writeLed('On');
@@ -16,12 +16,12 @@ writeLed('Off');
 const MIN_SATURATION = 50;
 
 const config = {
-    name: 'LED Strips',
+    name: 'LED Strips 2',
     pincode: '031-45-154',
-    username: 'FA:3C:ED:5A:1A:1A',
+    username: 'FA:3C:EF:5A:1A:1A',
     manufacturer: 'HAP-NodeJS',
     model: 'v1.0',
-    serialNumber: 'A12S345KGB'
+    serialNumber: 'A12S345KKB'
 };
 
 let power = false;
@@ -37,6 +37,8 @@ const setPower = (status) => {
     } else {
         writeLed('Off');
     }
+
+    console.log('second power set');
 
     power = status;
 };

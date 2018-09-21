@@ -2,6 +2,6 @@
 
 killall node
 # npm install
-cd ~/homekit-server
+cd /home/pi/homekit-server
 sudo pigpiod
 npm start
