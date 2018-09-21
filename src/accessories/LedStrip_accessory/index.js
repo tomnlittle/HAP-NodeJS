@@ -1,10 +1,10 @@
-const { Accessory } = require('../Accessory');
-const { Service } = require('../Service');
-const { Characteristic } = require('../Characteristic');
-const uuid = require('../util/uuid');
+const { Accessory } = require('../../Accessory');
+const { Service } = require('../../Service');
+const { Characteristic } = require('../../Characteristic');
+const uuid = require('../../util/uuid');
 
 const shell = require('shelljs');
-shell.cd('src/accessories');
+shell.cd('src/accessories/LedStrip_accessory');
 
 const writeLed = (command) => shell.exec(`./write.sh ${command}`);
 

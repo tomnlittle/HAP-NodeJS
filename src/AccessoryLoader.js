@@ -28,13 +28,13 @@ function loadDirectory(dir) {
     fs.readdirSync(dir).forEach(function(file) {
 
     // "Accessories" are modules that export a single accessory.
-        if (file.split('_').pop() === 'accessory.js') {
+        if (file.split('_').pop() === 'accessory') {
             debug('Parsing accessory: %s', file);
             const loadedAccessory = require(path.join(dir, file)).accessory;
             accessories.push(loadedAccessory);
         }
         // "Accessory Factories" are modules that export an array of accessories.
-        else if (file.split('_').pop() === 'accfactory.js') {
+        else if (file.split('_').pop() === 'accfactory') {
             debug('Parsing accessory factory: %s', file);
 
             // should return an array of objects { accessory: accessory-json }
@@ -91,7 +91,6 @@ function parseAccessoryJSON(json) {
     // clear out the default services
     accessory.services.length = 0;
 
-    console.log(services);
     // add services
     services.forEach(function(service) {
         accessory.addService(service);

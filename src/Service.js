@@ -205,7 +205,6 @@ Service.prototype.getCharacteristicByIID = function (iid) {
 
 Service.prototype._assignIDs = function (identifierCache, accessoryName, baseIID) {
 
-    console.log({identifierCache});
     if (baseIID === undefined) {
         baseIID = 0;
     }
