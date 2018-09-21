@@ -16,7 +16,7 @@ writeLed('Off');
 const MIN_SATURATION = 50;
 
 const config = {
-    name: 'LED Strips',
+    name: 'Desk Lights',
     pincode: '031-45-154',
     username: 'FA:3C:ED:5A:1A:1A',
     manufacturer: 'HAP-NodeJS',

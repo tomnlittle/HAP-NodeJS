@@ -16,7 +16,7 @@ writeLed('Off');
 const MIN_SATURATION = 50;
 
 const config = {
-    name: 'LED Strips 2',
+    name: 'Bed Lights',
     pincode: '031-45-154',
     username: 'FA:3C:EF:5A:1A:1A',
     manufacturer: 'HAP-NodeJS',
@@ -37,8 +37,6 @@ const setPower = (status) => {
     } else {
         writeLed('Off');
     }
-
-    console.log('second power set');
 
     power = status;
 };
